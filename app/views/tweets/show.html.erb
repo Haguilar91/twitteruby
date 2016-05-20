@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @tweet.email %>
+</p>
+
+<p>
+  <strong>Mensaje:</strong>
+  <%= @tweet.mensaje %>
+</p>
+
+<%= link_to 'Edit', edit_tweet_path(@tweet), :class =>"btn btn-primary" %> |
+<%= link_to 'Back', tweets_path, :class =>"btn btn-primary" %>

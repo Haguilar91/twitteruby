@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twitter</title>
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+ 
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Tweetah my m8!</a>
+    </div>
+    
+    <ul class="nav navbar-nav navbar-right">
+    
+     <%if current_user%>
+     
+     
+     <li><span style="line-height: 50px;"> Bienvenido <%=" #{current_user.email}      "%>  </span></li>
+     
+     
+		<li> <%= link_to "Cerrar Sesion".html_safe, destroy_user_session_path, :method => :delete %>  </li>
+     
+      <%else%>
+      <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Crear Una Cuenta</a></li>
+      <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion </a></li>
+      <%end%>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container">
+ <%= yield %>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+body{
+
+	background-image: url('/assets/IMC_Background.jpg');
+	background-repeat: repeat;
+	color:#fff; !important
+}
+
+input[type="text"], input[type="password"], input[type="email"], textarea{
+	background-color:#000;
+	color: white;
+}

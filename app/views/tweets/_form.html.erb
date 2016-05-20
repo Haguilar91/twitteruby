@@ -1,0 +1,28 @@
+<%= form_for(@tweet) do |f| %>
+  <% if @tweet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+
+      <ul>
+      <% @tweet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    
+    <!--<%= f.text_field :email %>-->
+    <% if user_signed_in? %>
+   <% f.text_field :email, :value=>  "#{current_user.email}" %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :mensaje %><br>
+    <%= f.text_area :mensaje %>
+  </div>
+  <div class="actions btn btn-primary">
+    <%= f.submit%>
+  </div>
+<% end %>
